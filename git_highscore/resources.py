@@ -1,8 +1,4 @@
-from flask import Flask
 from flask.ext import restful
-
-app = Flask(__name__)
-api = restful.Api(app)
 
 # TODO (Resources):
 # - Title (held by some for some measurable feat, one user)
@@ -12,16 +8,9 @@ api = restful.Api(app)
 
 class Commit(restful.Resource):
     def get(self, id):
-
-        return {'hello': 'world'}
+        return {'commit': 'blah'}
 
 
 class CommitList(restful.Resource):
     def get(self):
-        return {'hello': 'world'}
-
-api.add_resource(CommitList, '/commits')
-api.add_resource(Commit, '/commits/<string:id>')
-
-if __name__ == '__main__':
-    app.run(debug=True)
+        return {'commits': []}
